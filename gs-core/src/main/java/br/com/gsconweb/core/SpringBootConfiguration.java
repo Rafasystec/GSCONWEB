@@ -1,15 +1,9 @@
 package br.com.gsconweb.core;
 
-import javax.sql.DataSource;
-
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
-import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 /**
  * 
  * @author Rafael Rocha
@@ -28,9 +22,5 @@ public class SpringBootConfiguration {
 	public static void main(String[] args){
 	    SpringApplication.run(SpringBootConfiguration.class, args);
 	}
-	@RequestMapping("/")
-	@ResponseBody
-	String rootApplicationPath(){
-		return "Its works!";
-	}
+	
 }

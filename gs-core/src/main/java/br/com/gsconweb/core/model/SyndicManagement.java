@@ -2,27 +2,26 @@ package br.com.gsconweb.core.model;
 
 import java.util.Date;
 import java.util.List;
-
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
-import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import br.com.gsconweb.core.model.vars.Vars;
 
 @Entity
 public class SyndicManagement extends SuperEntity{
 
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date dtInitial;
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date dtFinal;
 	@OneToOne
 	@MapsId(value="OWNER_SYND_ID")

@@ -18,7 +18,7 @@ public class User extends SuperEntity{
     private String email;
     
     @NotBlank(message = "PassWord is mandatory")
-    @Column(length=25,nullable=false)
+    @Column(length=80,nullable=false)
     private String password;
 
 	public String getName() {
