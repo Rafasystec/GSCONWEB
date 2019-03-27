@@ -1,0 +1,1 @@
+by convention the spring theme will fetch the html files in this folder.
