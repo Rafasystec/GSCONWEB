@@ -4,7 +4,12 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
-
+/**
+ * @deprecated use the Entity User instead.
+ * @author Rafael Rocha
+ *
+ */
+@Deprecated
 @MappedSuperclass
 public abstract class SuperPerson extends SuperEntity{
 

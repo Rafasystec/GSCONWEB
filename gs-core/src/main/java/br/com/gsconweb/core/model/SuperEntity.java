@@ -11,6 +11,10 @@ import javax.persistence.MappedSuperclass;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+
+import br.com.gsconweb.core.model.vars.Vars;
+
 @MappedSuperclass
 public abstract class SuperEntity implements Serializable {
 
@@ -24,7 +28,7 @@ public abstract class SuperEntity implements Serializable {
 	}
 
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="ID", nullable=false)
+	@Column(name=Vars.ID, nullable=false)
 	private Long id;
 	@Column(name="REGISTRATION")
 	@Temporal(TemporalType.TIMESTAMP)
