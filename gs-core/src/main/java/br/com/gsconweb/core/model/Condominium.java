@@ -15,6 +15,11 @@ public class Condominium extends SuperEntity{
 	 * 
 	 */
 	private static final long serialVersionUID = -5113623658065014059L;
+	public static final String ROOT = "condominium";
+	@Override
+	public String getRootURL() {
+		return ROOT;
+	}
 	@Column(length=180)
 	private String name = "";
 	@Temporal(TemporalType.DATE)
@@ -39,4 +44,5 @@ public class Condominium extends SuperEntity{
 	public void setOners(List<Owner> oners) {
 		this.oners = oners;
 	}
+	
 }

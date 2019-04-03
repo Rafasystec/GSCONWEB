@@ -2,12 +2,20 @@ package br.com.gsconweb.core.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Index;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
 @Entity
-@Table(name="USERS")
+@Table(name="USERS",
+	indexes={@Index(columnList="email",name="USERS_EMAIL",unique=true)}
+)
 public class User extends SuperEntity{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4862267639960250548L;
 
 	@Column(length=120,nullable=false)
 	@NotBlank(message = "Name is mandatory")
@@ -45,6 +53,12 @@ public class User extends SuperEntity{
 		this.password = password;
 	}
     
+	
+	public static final String ROOT = "user";
+	@Override
+	public String getRootURL() {
+		return ROOT;
+	}
     
 
 }

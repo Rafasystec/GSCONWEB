@@ -19,5 +19,9 @@ public class SubSyndic extends SuperEntity {
 		this.person = person;
 	}
 	
-	
+	public static final String ROOT = "subSyndic";
+	@Override
+	public String getRootURL() {
+		return ROOT;
+	}
 }

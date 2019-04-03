@@ -7,8 +7,11 @@ import javax.persistence.FetchType;
 import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import br.com.gsconweb.core.enums.EnumTypeOwner;
 @Entity
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Owner extends SuperEntity{
 	
 	@Enumerated(EnumType.STRING)
@@ -29,6 +32,11 @@ public class Owner extends SuperEntity{
 		this.condominium = condominium;
 	}
 	
+	public static final String ROOT = "condominium";
+	@Override
+	public String getRootURL() {
+		return ROOT;
+	}
 	
 
 }

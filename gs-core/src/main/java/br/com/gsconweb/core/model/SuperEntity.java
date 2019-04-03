@@ -26,6 +26,8 @@ public abstract class SuperEntity implements Serializable {
 	public SuperEntity() {
 
 	}
+	
+	public abstract String getRootURL();
 
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name=Vars.ID, nullable=false)

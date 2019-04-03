@@ -23,6 +23,10 @@ public class Unit extends SuperEntity {
 		this.block = block;
 	}
 
-//	private Owner owner;
+	public static final String ROOT = "unit";
+	@Override
+	public String getRootURL() {
+		return ROOT;
+	}
 	
 }

@@ -56,4 +56,10 @@ public class SyndicManagement extends SuperEntity{
 	public void setDtFinal(Date dtFinal) {
 		this.dtFinal = dtFinal;
 	}
+	
+	public static final String ROOT = "syndicmanagement";
+	@Override
+	public String getRootURL() {
+		return ROOT;
+	}
 }

@@ -23,4 +23,9 @@ public class Syndic extends SuperEntity {
 		this.person = person;
 	}
 	
+	public static final String ROOT = "syndic";
+	@Override
+	public String getRootURL() {
+		return ROOT;
+	}
 }

@@ -6,10 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import br.com.gsconweb.core.exception.ValidationException;
 import br.com.gsconweb.core.model.User;
 import br.com.gsconweb.core.rules.RuleUser;
 
@@ -19,21 +19,28 @@ public class UserController {
 	@Autowired
 	private RuleUser ruleUser;
 	
-	@PostMapping("user/add")
+	@RequestMapping(path="register", method=RequestMethod.POST)
     public String addUser(@Valid User user, BindingResult result, Model model) {
         if (result.hasErrors()) {
             return "add-user";
         }
-        User saved = ruleUser.getRepoUser().save(user);
+        System.out.println("Try to save the user.");
+        User saved = null;
+		try {
+			saved = ruleUser.save(user);
+		} catch (ValidationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
         model.addAttribute("user", saved);
-        return "/index";
+        return "index";
     }
 	
 	
-	@RequestMapping(value="/register",method=RequestMethod.GET)
+	@RequestMapping(path="register",method=RequestMethod.GET)
 	String register(Model model){
 		 model.addAttribute("user", new User()); 
-		return "/register";
+		return "register";
 	}
 	
 	@RequestMapping(value="/login",method=RequestMethod.GET)
@@ -42,9 +49,15 @@ public class UserController {
 		return "/login";
 	}
 	
-	@RequestMapping(value="/forgot/password",method=RequestMethod.GET)
+	@RequestMapping(value="/forgotpassword",method=RequestMethod.GET)
 	String forgotPassword(Model model){
 		 //model.addAttribute("user", new User()); 
 		return "/forgot-password";
+	}
+	
+	@RequestMapping(path="indexsynd",method=RequestMethod.GET)
+	String indexForSyndicUser(Model model){
+		//model.addAttribute("user", new User()); 
+		return "indexsynd";
 	}
 }

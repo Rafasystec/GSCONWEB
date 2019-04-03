@@ -6,4 +6,5 @@ import br.com.gsconweb.core.model.User;
 
 public interface RepoUser extends CrudRepository<User, Long>{
 
+	public User findByEmail(String email);
 }
